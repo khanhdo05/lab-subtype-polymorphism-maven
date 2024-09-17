@@ -54,7 +54,23 @@ public class HorizontalCompositionCenter implements AsciiBlock {
    *   if i is outside the range of valid rows.
    */
   public String row(int i) throws Exception {
-    throw new Exception("Not yet implemented"); // STUB
+    int offset = (this.left.height() - this.right.height()) / 2;
+    int offsetLeft = Math.max(0, - offset);
+    int offsetRight = Math.max(0, offset);
+
+    if ((i < 0) || (i >= this.height())) {
+      // Outside of normal bounds
+      throw new Exception("Invalid row " + i);
+    } else if ((i - offsetLeft >= 0) && (i - offsetRight >= 0) && (i - offsetLeft < this.left.height()) && (i - offsetRight < this.right.height())) {
+      // Inside both left and right bounds
+      return this.left.row(i - offsetLeft) + this.right.row(i - offsetRight);
+    } else if ((i - offsetRight >= 0) && (i - offsetRight < this.right.height())) {
+      // Inside right bounds, outside left bounds
+      return " ".repeat(this.left.width()) + this.right.row(i - offsetRight);
+    } else {
+      // Inside left bounds, outside right bounds
+      return this.left.row(i - offsetLeft) + " ".repeat(this.right.width());
+    } // if/else
   } // row(int)
 
   /**
