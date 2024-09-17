@@ -10,6 +10,7 @@ import edu.grinnell.csc207.blocks.Line;
 import edu.grinnell.csc207.blocks.Rectangle;
 // import edu.grinnell.csc207.blocks.Surrounded;
 // import edu.grinnell.csc207.blocks.VerticalCompositionLeft;
+import edu.grinnell.csc207.blocks.Surrounded;
 
 /**
  * Experiments with ASCII blocks.
@@ -79,6 +80,12 @@ public class Blocks {
     pen.printf("b9 = new Boxed(b8)\n\n");
     AsciiBlock b9 = new Boxed(b8);
     AsciiBlock.print(pen, b9);
+
+    separator(pen);
+    AsciiBlock.print(pen, new Surrounded(new Line("A"), '*'));
+    AsciiBlock.print(pen, new Surrounded(new Surrounded(new Line("A"), ' '), '*'));
+    AsciiBlock.print(pen, new Surrounded(new Surrounded(new Line("A"), 'B'), 'C'));
+
 
     pen.close();
   } // main(String[])
