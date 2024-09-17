@@ -112,16 +112,33 @@ public class Blocks {
     separator(pen);
     AsciiBlock.print(pen, boxedcomp);
 
-     AsciiBlock threeLeft = new Rectangle('L', 4, 3);
+    AsciiBlock threeLeft = new Rectangle('L', 4, 3);
     AsciiBlock fiveLeft = new Rectangle('L', 4, 5);
     AsciiBlock threeRight = new Rectangle('R', 5, 3);
     AsciiBlock fiveRight = new Rectangle('R', 5, 5);
     separator(pen);
     AsciiBlock.print(pen, new HorizontalCompositionCenter(fiveLeft, threeRight));
+    separator(pen);
     AsciiBlock.print(pen, new HorizontalCompositionCenter(threeLeft, fiveRight));
+    separator(pen);
     AsciiBlock.print(pen, new HorizontalCompositionCenter(fiveLeft, fiveRight));
+    separator(pen);
     AsciiBlock.print(pen, 
     new Boxed(new HorizontalCompositionCenter(fiveLeft, threeRight)));
+
+    AsciiBlock twoLeft = new Rectangle('L', 4, 2);
+    AsciiBlock oneLeft = new Rectangle('L', 4, 1);
+    AsciiBlock oneRight = new Rectangle('R', 5, 1);
+    AsciiBlock fourRight = new Rectangle('R', 5, 4);
+    AsciiBlock twoRight = new Rectangle('R', 5, 2);
+    separator(pen);
+    AsciiBlock.print(pen, new HorizontalCompositionCenter(twoLeft, oneRight));
+    separator(pen);
+    AsciiBlock.print(pen, new HorizontalCompositionCenter(oneLeft, fourRight));
+    separator(pen);
+    AsciiBlock.print(pen, new HorizontalCompositionCenter(threeLeft, fourRight));
+    separator(pen);
+    AsciiBlock.print(pen, new HorizontalCompositionCenter(fiveLeft, twoRight));
 
     pen.close();
   } // main(String[])
